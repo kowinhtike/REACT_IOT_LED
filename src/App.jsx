@@ -22,6 +22,11 @@ function App() {
       }
     };
     getState();
+    // Set interval to fetch every 5 seconds
+    const intervalId = setInterval(getState, 2000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
   }, []);
 
   // Toggle the switch
